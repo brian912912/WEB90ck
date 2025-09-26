@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import NonAuthLayout from "../layouts/NonAuth";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 import MainLayout from "../layouts/MainLayout";
 import ProductManagement from "../pages/ProductManagement";
 import NotFoundPage from "../pages/404Page";
@@ -15,6 +16,7 @@ const AppRouters = () => {
     <Routes>
       <Route path="/auth" element={<NonAuthLayout />}>
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Route>
 
       {token && (

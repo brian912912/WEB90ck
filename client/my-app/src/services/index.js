@@ -1,12 +1,14 @@
 import axios from "axios";
 import { getValueFromLocalStorage } from "../utils";
 
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 const instance = axios.create({
-  baseURL: "http://localhost:8080/",
+  baseURL: BASE_URL,
 });
 
 const authInstance = axios.create({
-  baseURL: "http://localhost:8080/",
+  baseURL: BASE_URL,
 });
 
 authInstance.interceptors.request.use((config) => {
@@ -27,9 +29,13 @@ authInstance.interceptors.request.use((config) => {
 });
 
 export const login = (name, password) => {
-  return instance.post("users/login", { name, password });
+  return instance.post("/auth/login", { name, password });
 };
 
 export const createProduct = (data) => {
   return authInstance.post("/products/create", data);
+};
+
+export const register = (payload) => {
+  return instance.post("/auth/register", payload);
 };

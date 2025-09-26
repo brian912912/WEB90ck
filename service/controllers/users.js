@@ -3,7 +3,7 @@ import Joi from "joi";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-export const registerUser = async (req, res) => {
+export const register = async (req, res) => {
   const { name, password } = req.body;
 
   const userSchema = Joi.object({
@@ -39,7 +39,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-export const loginUser = async (req, res) => {
+export const login = async (req, res) => {
   const { name, password } = req.body;
   try {
     const isExistUser = await userModel.findOne({ name });

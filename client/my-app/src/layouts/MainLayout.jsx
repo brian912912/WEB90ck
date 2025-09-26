@@ -14,17 +14,29 @@ const MainLayout = () => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item>
-            <Link to={"/dashboard"}>Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"product-management"}>Dành cho quản lí sản phẩm</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/social-media-management"}>Dành cho mạng xã hội</Link>
-          </Menu.Item>
-        </Menu>
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["dashboard"]}
+          items={[
+            {
+              key: "dashboard",
+              label: <Link to="/dashboard">Dashboard</Link>,
+            },
+            {
+              key: "product-management",
+              label: (
+                <Link to="product-management">Dành cho quản lí sản phẩm</Link>
+              ),
+            },
+            {
+              key: "social-media-management",
+              label: (
+                <Link to="/social-media-management">Dành cho mạng xã hội</Link>
+              ),
+            },
+          ]}
+        />
       </Sider>
       <Layout>
         <Header
