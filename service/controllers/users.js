@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
+  console.log("BE", req.body);
+  
   const { name, password } = req.body;
 
   const userSchema = Joi.object({

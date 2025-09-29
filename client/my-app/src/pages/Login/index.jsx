@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../services";
 import { saveToLocalStorage } from "../../utils";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [form] = Form.useForm();
@@ -98,6 +99,11 @@ const Login = () => {
           >
             <Button type="primary" htmlType="submit">
               Login
+            </Button>
+
+            <Button type="primary" htmlType="submit">
+
+              <Link to={"/auth/register"}>Register</Link>
             </Button>
           </Form.Item>
         </Form>

@@ -37,5 +37,7 @@ export const createProduct = (data) => {
 };
 
 export const register = (payload) => {
+  console.log("payload",payload);
+  
   return instance.post("/auth/register", payload);
 };

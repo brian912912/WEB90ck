@@ -6,7 +6,7 @@ import authentication from "../middlewares/authentication.js";
         
 const router = Router();
 
-router.use("/users", authentication, usersRouter);
+router.use("/users", usersRouter);
 router.use("/products", authentication, productsRouter);
 router.use("/auth", authRouter);
 export default router;

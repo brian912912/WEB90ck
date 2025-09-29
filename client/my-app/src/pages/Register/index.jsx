@@ -8,13 +8,15 @@ const Register = () => {
     const [form] = Form.useForm();
     const navigate = useNavigate();
 
-    const onFinish = async () => {
+    const onFinish = async (values) => {
         try {
-            const username = form.getFieldValue("username");
-            const email = form.getFieldValue("email");
-            const password = form.getFieldValue("password");
+            // const email = form.getFieldValue("email");
+            // const username = form.getFieldValue("username");
+            // const password = form.getFieldValue("password");
+            const { username, password, email } = values;
+            console.log("HUY LOG", username, email, password);
 
-            const res = await registerApi({ username, email, password });
+            const res = await registerApi({ username, password });
 
             if (res?.data?.isSuccess) {
                 toast.success("Đăng ký thành công");
@@ -75,7 +77,7 @@ const Register = () => {
                         <Input.Password />
                     </Form.Item>
 
-                    <Form.Item
+                    {/* <Form.Item
                         label="Confirm"
                         name="confirm"
                         dependencies={["password"]}
@@ -91,8 +93,8 @@ const Register = () => {
                             }),
                         ]}
                     >
-                        <Input.Password />
-                    </Form.Item>
+                    <Input.Password />
+                </Form.Item> */}
 
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                         <Button type="primary" htmlType="submit">
@@ -104,7 +106,7 @@ const Register = () => {
                     </Form.Item>
                 </Form>
             </div>
-        </div>
+        </div >
     );
 };
 
